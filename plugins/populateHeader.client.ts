@@ -1,7 +1,7 @@
 // plugins/populateHeader.client.ts
 import { populateHeader } from '~/composables/seoMeta';
 
-export default defineNuxtPlugin((nuxtApp) => {
+export default defineNuxtPlugin((_nuxtApp) => {
     const route = useRoute();
     onBeforeMount(() => {
         populateHeader(route);

@@ -109,7 +109,7 @@ onUnmounted(() => {
             </div>
 
             <div class="navbar-end ">
-                <NuxtLink to="https://erindtherapy.clientsecure.me/sign-in"
+                <!-- <NuxtLink to="https://erindtherapy.clientsecure.me/sign-in"
                           target="_blank"
                           rel="noopener noreferrer"
                           class="btn btn-primary hidden text-text_secondary lg:flex mr-2 ">
@@ -117,7 +117,7 @@ onUnmounted(() => {
                         <span class="mr-2 text-text_secondary">Client Portal</span>
                         <ArrowTopRightOnSquareIcon class="h-6 w-6" />
                     </span>
-                </NuxtLink>
+                </NuxtLink> -->
                 <slot />
             </div>
         </nav>

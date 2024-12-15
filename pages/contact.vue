@@ -8,7 +8,7 @@ const success = ref(route.query.success === 'true')
 const email = ref('')
 const name = ref('')
 const service = ref('')
-const formIsValid = ref<boolean>(false)
+const formIsValid = ref<boolean>(false)``
 const invalidEmail = ref<boolean>(false)
 
 const validateForm = () => {

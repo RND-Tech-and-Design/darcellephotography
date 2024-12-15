@@ -7,6 +7,7 @@ definePageMeta({
     layout: 'default',
     title: 'Rates & Insurance',
     navOrder: 4,
+    noNav: true,
     description: `Affordable, results-oriented therapy: Specializing in marathon couples therapy, individual counseling. 
     Flexible rates, personalized care. Expert therapist.`
 })

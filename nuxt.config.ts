@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     schemaOrg: {
         identity: {
             type: 'Organization',
-            name: 'ErinDTherapy',
+            name: 'DarcellePhotography',
             logo: '/logo.png',
 
         }
@@ -24,7 +24,7 @@ export default defineNuxtConfig({
     },
 
     site: {
-        url: 'https://erindtherapy.com',
+        url: 'https://DarcellePhotography.com',
         indexable: true,
     },
 

@@ -1,8 +1,8 @@
 {
-    "name": "erindtherapy.com",
+    "name": "DarcellePhotography.com",
     "private": true,
     "version": "1.0.0",
-    "description": "erindtherapy.com website",
+    "description": "DarcellePhotography.com website",
     "type": "module",
     "scripts": {
         "build": "nuxt build",

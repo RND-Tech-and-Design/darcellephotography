@@ -27,7 +27,8 @@ const currentYear = new Date().getFullYear()
                 </header>
 
                 <div>
-                    <NuxtLink href="https://www.facebook.com/erindtherapy" class="link link-hover flex items-center">
+                    <NuxtLink href="https://www.facebook.com/darcellephotogrpahy"
+                              class="link link-hover flex items-center">
                         <span class="h-4 mr-1">
                             <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
                                  class="fill-current">
@@ -36,19 +37,20 @@ const currentYear = new Date().getFullYear()
                                 </path>
                             </svg>
                         </span>
-                        @erindtherapy
+                        @darcellephotography
                     </NuxtLink>
                 </div>
                 <div>
                     <span class="flex items-center">
                         <EnvelopeIcon class="h-5 w-5 mr-1" />
-                        <NuxtLink class="link link-hover flex items-center" href="mailto:erin@erindtherapy.com">
-                            erin@erindtherapy.com
+                        <NuxtLink class="link link-hover flex items-center"
+                                  href="mailto:darcelle@darcellephotography.com">
+                            darcelle@darcellephotography.com
                         </NuxtLink>
                     </span>
 
                 </div>
-                <div>
+                <!-- <div>
                     <span class="flex items-center">
                         <PhoneIcon class="h-5 w-5 mr-1" />
                         <NuxtLink class="link link-hover flex items-center" href="tel:+4257280775">
@@ -63,14 +65,15 @@ const currentYear = new Date().getFullYear()
                         P.O. Box 412 Renton, WA 98057
                     </span>
 
-                </div>
+                </div> -->
             </aside>
 
             <nav>
                 <header class="footer-title">Main</header>
                 <template v-for="link in navigationLinks">
-                    <NuxtLink v-if="!link.children || link.children?.length === 0" :to="link.path" class="link">{{ link.name
-                    }}
+                    <NuxtLink v-if="!link.children || link.children?.length === 0" :to="link.path" class="link">{{
+                        link.name
+                        }}
                     </NuxtLink>
                 </template>
             </nav>
@@ -92,9 +95,10 @@ const currentYear = new Date().getFullYear()
             <aside class="items-center">
 
                 <div class=" h-12 w-12 flex justify-center items-center rounded-full shadow">
-                    <img src="/images/logos/icon.svg" alt="ErinDTherapy" width="128px" height="128px" class="h-32 w-32" />
+                    <img src="/images/logos/icon.svg" alt="DarcellePhotography" width="128px" height="128px"
+                         class="h-32 w-32" />
                 </div>
-                <p> &copy; ErinDTherapy {{ currentYear }}</p>
+                <p> &copy; DarcellePhotography {{ currentYear }}</p>
             </aside>
         </div>
     </footer>

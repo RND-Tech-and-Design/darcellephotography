@@ -55,7 +55,7 @@ export default {
     daisyui: {
         themes: [
             {
-                erindtherapy_theme: {
+                darcellephotography_theme: {
                     primary: '#b99095', // Soft, muted pink
                     secondary: '#10768c', // Deep teal
                     accent: '#97c1a9', // Light mint green

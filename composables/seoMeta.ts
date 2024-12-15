@@ -1,13 +1,13 @@
 import type { RouteLocationNormalizedLoaded } from 'vue-router';
 
-export const therapyTitle = "Erin Dierickx, LMFT";
+export const profTitle = "Erin Dierickx, LMFT";
 export const site_name = "ErinDTherapy";
 export const domain = "https://erindtherapy.com";
-export const titleTail = `${site_name} | ${therapyTitle}`
+export const titleTail = `${site_name} | ${profTitle}`
 export const video = 'https://player.vimeo.com/video/555906424';
 
 export const defaultDescription = `Expert Couples Therapy, Depression, Anxiety, Intensive Marathon Therapy treatment, 
-focusing on improving relationships and personal well-being, Seattle, Washington, ${therapyTitle} - Gottman Trained Level 3`;
+focusing on improving relationships and personal well-being, Seattle, Washington, ${profTitle} - Gottman Trained Level 3`;
 
 const keywords: string[] = [
     'Couples-Therapy',
@@ -81,7 +81,7 @@ export const populateHeader = ({ meta, fullPath }: RouteLocationNormalizedLoaded
         appleMobileWebAppCapable: 'yes',
         appleMobileWebAppStatusBarStyle: 'black',
         applicationName: site_name,
-        author: therapyTitle,
+        author: profTitle,
         creator: 'Erin Dierickx',
         description,
         fbAppId: '105123268480886',

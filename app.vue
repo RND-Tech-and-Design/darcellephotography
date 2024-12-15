@@ -4,7 +4,7 @@
 
 useSchemaOrg([
     defineWebSite({
-        name: 'ErinDTherapy.com',
+        name: 'DarcellePhotography.com',
     }),
     defineWebPage(),
 ]);

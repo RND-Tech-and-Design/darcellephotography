@@ -45,7 +45,7 @@ const filteredPosts = computed(() => {
                      v-for="(post, _index) in filteredPosts"
                      :key="post._id"
                      class="bg-white overflow-hidden rounded-lg shadow-lg group">
-                    <LazyWrap>
+                    <mLazyWrap>
                         <template #placeholder>
                             <div class="w-full h-48 bg-gray-200 animate-pulse"></div>
                             <div class="p-4">
@@ -70,7 +70,7 @@ const filteredPosts = computed(() => {
                                 </p>
                             </div>
                         </NuxtLink>
-                    </LazyWrap>
+                    </mLazyWrap>
                 </div>
             </div>
         </div>
