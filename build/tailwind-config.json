@@ -1,0 +1,136 @@
+{
+  "content": [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}",
+    "./app.vue"
+  ],
+  "theme": {
+    "extend": {
+      "fontFamily": {
+        "sans": [
+          "rubik",
+          "ui-sans-serif",
+          "system-ui",
+          "sans-serif",
+          "\"Apple Color Emoji\"",
+          "\"Segoe UI Emoji\"",
+          "\"Segoe UI Symbol\"",
+          "\"Noto Color Emoji\""
+        ]
+      },
+      "animation": {
+        "fade-in": "fade-in 0.5s ease-out forwards"
+      },
+      "keyframes": {
+        "fade-in": {
+          "0%": {
+            "opacity": 0
+          },
+          "100%": {
+            "opacity": 1
+          }
+        }
+      },
+      "colors": {
+        "text_primary": "#000000",
+        "text_secondary": "#ffffff",
+        "text_accent": "#000000",
+        "text_neutral": "#ffffff",
+        "soft": "#6FA9BC",
+        "soft_yellow": "#ffeaba",
+        "soft_off_white": "FAFAFA",
+        "complementary_primary": "#466f6a",
+        "complementary_secondary": "#ef8973",
+        "complementary_accent": "#4a1a30",
+        "complementary_neutral": "#c2bbae",
+        "complementary_base-100": "#0a0a0d",
+        "complementary_info": "#ff8400",
+        "complementary_success": "#a347a3",
+        "complementary_warning": "#0e3bf0",
+        "complementary_error": "#00b2b2",
+        "text_info": "#000000",
+        "text_success": "#ffffff",
+        "text_warning": "#ffffff",
+        "text_error": "#ffffff"
+      }
+    }
+  },
+  "variants": {
+    "extend": {
+      "gridTemplateColumns": [
+        "responsive"
+      ]
+    }
+  },
+  "daisyui": {
+    "themes": [
+      {
+        "darcellephotography_theme": {
+          "primary": "#a0a95b",
+          "secondary": "#3e3d3d",
+          "accent": "#a3826c",
+          "neutral": "#3d4451",
+          "base-100": "#f5f5f2",
+          "info": "#007bff",
+          "success": "#5cb85c",
+          "warning": "#f1c40f",
+          "error": "#ff4d4d"
+        }
+      }
+    ]
+  },
+  "plugins": [
+    null,
+    {
+      "config": {
+        "theme": {
+          "extend": {
+            "colors": {
+              "transparent": "transparent",
+              "current": "currentColor",
+              "primary": "var(--fallback-p,oklch(var(--p)/<alpha-value>))",
+              "primary-content": "var(--fallback-pc,oklch(var(--pc)/<alpha-value>))",
+              "secondary": "var(--fallback-s,oklch(var(--s)/<alpha-value>))",
+              "secondary-content": "var(--fallback-sc,oklch(var(--sc)/<alpha-value>))",
+              "accent": "var(--fallback-a,oklch(var(--a)/<alpha-value>))",
+              "accent-content": "var(--fallback-ac,oklch(var(--ac)/<alpha-value>))",
+              "neutral": "var(--fallback-n,oklch(var(--n)/<alpha-value>))",
+              "neutral-content": "var(--fallback-nc,oklch(var(--nc)/<alpha-value>))",
+              "base-100": "var(--fallback-b1,oklch(var(--b1)/<alpha-value>))",
+              "base-200": "var(--fallback-b2,oklch(var(--b2)/<alpha-value>))",
+              "base-300": "var(--fallback-b3,oklch(var(--b3)/<alpha-value>))",
+              "base-content": "var(--fallback-bc,oklch(var(--bc)/<alpha-value>))",
+              "info": "var(--fallback-in,oklch(var(--in)/<alpha-value>))",
+              "info-content": "var(--fallback-inc,oklch(var(--inc)/<alpha-value>))",
+              "success": "var(--fallback-su,oklch(var(--su)/<alpha-value>))",
+              "success-content": "var(--fallback-suc,oklch(var(--suc)/<alpha-value>))",
+              "warning": "var(--fallback-wa,oklch(var(--wa)/<alpha-value>))",
+              "warning-content": "var(--fallback-wac,oklch(var(--wac)/<alpha-value>))",
+              "error": "var(--fallback-er,oklch(var(--er)/<alpha-value>))",
+              "error-content": "var(--fallback-erc,oklch(var(--erc)/<alpha-value>))",
+              "neutral-50": "#fafafa",
+              "neutral-100": "#f5f5f5",
+              "neutral-200": "#e5e5e5",
+              "neutral-300": "#d4d4d4",
+              "neutral-400": "#a3a3a3",
+              "neutral-500": "#737373",
+              "neutral-600": "#525252",
+              "neutral-700": "#404040",
+              "neutral-800": "#262626",
+              "neutral-900": "#171717",
+              "neutral-950": "#0a0a0a"
+            },
+            "borderRadius": {
+              "badge": "var(--rounded-badge, 1.9rem)",
+              "btn": "var(--rounded-btn, 0.5rem)",
+              "box": "var(--rounded-box, 1rem)"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

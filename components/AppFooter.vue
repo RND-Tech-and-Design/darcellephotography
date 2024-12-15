@@ -23,7 +23,7 @@ const currentYear = new Date().getFullYear()
             <aside>
 
                 <header class="footer-title">
-                    <div class="font-extrabold -ml-1">Erin D Therapy PLLC</div>
+                    <div class="font-extrabold -ml-1">Darcelle Photography</div>
                 </header>
 
                 <div>
@@ -90,14 +90,14 @@ const currentYear = new Date().getFullYear()
 
             </template>
         </div>
-        <QuoteBlock :randomQuote="true" />
+
         <div class="footer footer-center px-10 py-4 border-t bg-secondary border-base-300 text-neutral-content">
             <aside class="items-center">
 
-                <div class=" h-12 w-12 flex justify-center items-center rounded-full shadow">
+                <!-- <div class=" h-12 w-12 flex justify-center items-center rounded-full shadow">
                     <img src="/images/logos/icon.svg" alt="DarcellePhotography" width="128px" height="128px"
                          class="h-32 w-32" />
-                </div>
+                </div> -->
                 <p> &copy; DarcellePhotography {{ currentYear }}</p>
             </aside>
         </div>

@@ -46,8 +46,8 @@ function closeSidebar() {
 
             <ul class="menu p-4 w-80 min-h-full backdrop-blur-md bg-opacity-50 text-text_secondary">
                 <div class="mr-12 mt-5 mb-5 h-20 w-20 ml-6 flex justify-center items-center self-center">
-                    <img src="/images/logos/icon.svg" alt="ErinDTherapy" width="128px" height="128px"
-                         class="h-20 w-20" />
+                    <!-- <img src="/images/logos/icon.svg" alt="ErinDTherapy" width="128px" height="128px"
+                         class="h-20 w-20" /> -->
                 </div>
                 <template v-for="link in navigationLinks" :key="link.path">
                     <li v-if="!link.children || link.children?.length === 0">

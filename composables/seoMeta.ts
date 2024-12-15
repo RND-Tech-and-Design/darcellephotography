@@ -1,21 +1,24 @@
 import type { RouteLocationNormalizedLoaded } from 'vue-router';
 
-export const profTitle = "Erin Dierickx, LMFT";
-export const site_name = "ErinDTherapy";
-export const domain = "https://erindtherapy.com";
-export const titleTail = `${site_name} | ${profTitle}`
+export const profTitle = "Darcelle Photography - Seattle Photographer";
+export const site_name = "Darcelle Photography";
+export const domain = "https://darcellephotography.com";
+export const titleTail = `${site_name} | ${profTitle}`;
 export const video = 'https://player.vimeo.com/video/555906424';
 
-export const defaultDescription = `Expert Couples Therapy, Depression, Anxiety, Intensive Marathon Therapy treatment, 
-focusing on improving relationships and personal well-being, Seattle, Washington, ${profTitle} - Gottman Trained Level 3`;
+export const defaultDescription = `Seattle photographer specializing in professional headshots, personal branding, and event photography. Darcelle Photography captures timeless and authentic visuals to help elevate your personal and professional image.`;
 
 const keywords: string[] = [
-    'Couples-Therapy',
-    'marriage counseling',
-    'marathon therapy',
-    'depression therapy',
-    'anxiety therapy',
-    'Gottman Trained Therapist',
+    'Seattle photographer',
+    'headshot photography',
+    'branding photography Seattle',
+    'event photography Seattle',
+    'professional photographer Seattle',
+    'personal branding photos',
+    'corporate photography',
+    'Seattle headshots',
+    'portrait photography',
+    'event photographer near me',
 ];
 
 export const generateMetaTags = () => {
@@ -23,10 +26,10 @@ export const generateMetaTags = () => {
         {
             hid: 'keywords',
             name: 'keywords',
-            content: keywords.join(', ')
+            content: keywords.join(', '),
         },
     ];
-}
+};
 
 interface MetaCacheValue {
     head: any;
@@ -48,18 +51,17 @@ export const populateHeader = ({ meta, fullPath }: RouteLocationNormalizedLoaded
     usedPaths.add(fullPath);
 
     if (metaCache[fullPath]) {
-        // If the path is in the cache, use the cached values
+        // If the path is cached, use it
         useHead(metaCache[fullPath].head);
         useSeoMeta(metaCache[fullPath].seoMeta);
         return;
     }
 
-    // Compute the values
+    // Compute SEO values
     const title = meta?.title ? `${meta.title} - ${titleTail}` : titleTail;
-    const description = (meta?.description ? `${meta.description} - ${titleTail}` : defaultDescription)
+    const description = `${(meta?.description || defaultDescription)}`
         .replace(/(\r\n|\n|\r)|\s+/gm, " ");
-
-    const image = `${domain}/${meta?.ogImage ?? 'og-image.png'}`;
+    const image = `${domain}/${meta?.ogImage ?? 'og-default-image.webp'}`;
     const tileLogo = `${domain}/${meta?.tileLogo ?? 'tile-logo.webp'}`;
     const url = `${domain}${fullPath}`;
 
@@ -70,10 +72,10 @@ export const populateHeader = ({ meta, fullPath }: RouteLocationNormalizedLoaded
         link: [{ rel: 'canonical', href: url }],
     };
 
-    const ogVideo: { url: string; width: number; height: number; type: "video/mp4"; } = {
+    const ogVideo = {
         url: video,
-        width: 306,
-        height: 545,
+        width: 1280,
+        height: 720,
         type: 'video/mp4',
     };
 
@@ -82,9 +84,9 @@ export const populateHeader = ({ meta, fullPath }: RouteLocationNormalizedLoaded
         appleMobileWebAppStatusBarStyle: 'black',
         applicationName: site_name,
         author: profTitle,
-        creator: 'Erin Dierickx',
+        creator: 'Darcelle Photography',
         description,
-        fbAppId: '105123268480886',
+        fbAppId: '1234567890', // Replace with actual Facebook App ID if applicable
         generator: 'NuxtJS',
         mobileWebAppCapable: 'yes',
         msapplicationTileImage: tileLogo,
@@ -96,25 +98,22 @@ export const populateHeader = ({ meta, fullPath }: RouteLocationNormalizedLoaded
         ogLocale: 'en_US',
         ogSiteName: site_name,
         ogTitle: title,
-        ogType: 'website', // Assign the value 'website' to ogType
+        ogType: 'website',
         ogUrl: url,
         ogVideoSecureUrl: video,
         ogVideoType: 'video/mp4',
         publisher: site_name,
         title,
         twitterCard: 'summary_large_image',
-        twitterCreator: '@erindtherapy',
+        twitterCreator: '@darcellephotos', // Replace with actual Twitter handle
         twitterDescription: description,
         twitterImage: image,
         twitterTitle: title,
         ogVideo,
     };
 
-
-    // Cache the values
+    // Cache and apply the values
     metaCache[fullPath] = { head, seoMeta };
-    // Use the values
     useSeoMeta(seoMeta as any);
     useHead(head as any);
-
 };

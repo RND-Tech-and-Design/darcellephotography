@@ -1,3 +1,7 @@
+import defaultTheme from 'tailwindcss/defaultTheme.js';
+import typography from '@tailwindcss/typography';
+import daisyui from 'daisyui';
+
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
@@ -10,6 +14,9 @@ export default {
     ],
     theme: {
         extend: {
+            fontFamily: {
+                sans: ['rubik', ...defaultTheme.fontFamily.sans],
+            },
             animation: {
                 'fade-in': 'fade-in 0.5s ease-out forwards',
             },
@@ -26,14 +33,14 @@ export default {
                 text_neutral: '#ffffff',
 
                 soft: '#6FA9BC',
-                soft_yellow: `#ffeaba`,
+                soft_yellow: '#ffeaba',
                 soft_off_white: 'FAFAFA',
 
-                complementary_primary: '#466f6a', // Complementary to soft, muted pink
-                complementary_secondary: '#ef8973', // Complementary to deep teal
-                complementary_accent: '#4a1a30', // Complementary to light mint green
-                complementary_neutral: '#c2bbae', // Complementary to dark slate gray
-                'complementary_base-100': '#0a0a0d', // Complementary to very light gray
+                complementary_primary: '#466f6a',
+                complementary_secondary: '#ef8973',
+                complementary_accent: '#4a1a30',
+                complementary_neutral: '#c2bbae',
+                'complementary_base-100': '#0a0a0d',
 
                 complementary_info: '#ff8400',
                 complementary_success: '#a347a3',
@@ -49,18 +56,18 @@ export default {
     },
     variants: {
         extend: {
-            gridTemplateColumns: ['responsive'], // This line is important
+            gridTemplateColumns: ['responsive'],
         },
     },
     daisyui: {
         themes: [
             {
                 darcellephotography_theme: {
-                    primary: '#b99095', // Soft, muted pink
-                    secondary: '#10768c', // Deep teal
-                    accent: '#97c1a9', // Light mint green
-                    neutral: '#3d4451', // Dark slate gray
-                    'base-100': '#f5f5f2', // Very light gray
+                    primary: '#a0a95b',
+                    secondary: '#3e3d3d',
+                    accent: '#a3826c',
+                    neutral: '#3d4451',
+                    'base-100': '#f5f5f2',
 
                     info: '#007bff',
                     success: '#5cb85c',
@@ -70,5 +77,5 @@ export default {
             },
         ],
     },
-    plugins: [require('@tailwindcss/typography'), require('daisyui')],
+    plugins: [typography, daisyui],
 };

@@ -8,7 +8,7 @@ const success = ref(route.query.success === 'true')
 const email = ref('')
 const name = ref('')
 const service = ref('')
-const formIsValid = ref<boolean>(false)``
+const formIsValid = ref<boolean>(false)
 const invalidEmail = ref<boolean>(false)
 
 const validateForm = () => {
@@ -34,7 +34,7 @@ definePageMeta({
     <section>
         <Hero hero-image="/images/banner/contact.webp" :enableOverlay="false" class="pb-36 pt-19">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-8">
-                <div class="flex flex-col col-span-1 ">
+                <!-- <div class="flex flex-col col-span-1 ">
                     <CardGlass title="Ready to make an appointment?" class="flex-grow" animation-delay="0.2s">
                         <template #content>
                             <p>
@@ -49,20 +49,20 @@ definePageMeta({
                             </BookingPortalModalButton>
                         </template>
                     </CardGlass>
-                </div>
-                <div class="flex flex-col col-span-1">
-                    <CardGlass title="Already a client?" class="flex-grow" animation-delay="0.5s">
+                </div> -->
+                <div class="flex flex-col col-span-2">
+                    <CardGlass title="Book Consultation" class="flex-grow" animation-delay="0.5s">
                         <template #content>
                             <p>
-                                Schedule your next appointment using the client portal.
+                                Schedule your free consultation 
                             </p>
                         </template>
 
                         <template #action>
-                            <NuxtLink to="https://erindtherapy.clientsecure.me/sign-in"
+                            <NuxtLink to="/"
                                       class="btn btn-primary text-text_secondary flex items-center" target="_blank">
-                                <span class="mr-2">Open Client Portal </span>
-                                <ArrowTopRightOnSquareIcon class="h-6 w-6" />
+                                <span class="mr-2">Launch Scheduler </span>
+                                
                             </NuxtLink>
                         </template>
                     </CardGlass>
@@ -118,7 +118,7 @@ definePageMeta({
                                     </span>
                                 </label>
 
-                                <label class="form-control">
+                                <!-- <label class="form-control">
                                     <div class="label">
                                         <span class="label-text">What service are you interested in?</span>
                                     </div>
@@ -131,7 +131,7 @@ definePageMeta({
                                         <option value="family">Family Therapy</option>
                                         <option value="family">Other</option>
                                     </select>
-                                </label>
+                                </label> -->
 
                                 <label class="form-control">
                                     <div class="label">
@@ -139,7 +139,7 @@ definePageMeta({
                                     </div>
                                     <textarea name="message"
                                               class="textarea textarea-bordered w-full max-w-full h-32"
-                                              placeholder="Please do not share any confidential or sensitive medical information"></textarea>
+                                              placeholder="Please do not share any confidential information"></textarea>
                                 </label>
 
                                 <div data-netlify-recaptcha="true"></div>

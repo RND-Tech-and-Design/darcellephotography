@@ -2,36 +2,29 @@
 import { ArrowRightIcon } from '@heroicons/vue/24/solid'
 
 </script>
-
 <template>
     <section>
-        <div class="hero min-h-svh"
-             style="background-image: url(/images/banner/home.webp);">
-            <div class="hero-overlay bg-opacity-60"></div>
-            <div class="hero-content text-center text-neutral-content mt-32 ">
-                <div class="max-w-md -mt-64 h-96 md:max-w-2xl text-left md:-ml-32 md:-mt-64 ">
-                    <h1 class="mb-5 text-3xl font-bold">
-                        A NEW CHAPTER?
+        <div class="hero min-h-screen"
+             style="background-image: url(/images/banner/home.webp); background-size: cover; background-position: center;">
+            <div class="hero-overlay bg-black bg-opacity-50"></div>
+            <div
+                 class="hero-content flex flex-col items-center justify-center text-neutral-content text-center px-6 -mt-32">
+                <div class="max-w-2xl">
+                    <h1 class="mb-4 text-4xl md:text-5xl font-bold leading-tight">
+                        Step Into Your Spotlight
                     </h1>
-                    <h2 class="mb-5 text-5xl font-bold ">
-                        Don’t just face it,
-                        <span class="relative z-10 bg-gradient-to-r from-accent to-soft
-                     bg-clip-text text-5xl font-extrabold text-transparent">
-                            embrace it!
-                        </span>
+                    <h2 class="mb-6 text-xl md:text-2xl">
+                        Capture the moments that matter with photography that reflects who you are—bold, authentic,
+                        unforgettable.
                     </h2>
-                    <p class="mb-5 text-2xl">I help individuals and couples meet a new chapter with confidence</p>
-
-                    <div class="p-1 bg-gradient-to-r from-accent via-primary to-soft
-                      hover:from-soft hover:via-primary hover:to-accent 
-                     rounded-lg inline-block">
+                    <div class="flex justify-center">
+                        <NuxtLink to="/portfolio"
+                                  class="bg-gradient-to-r from-accent to-accent px-6 py-3 rounded-lg text-lg font-medium text-black hover:from-primary hover:to-accent">
+                            Explore My Work
+                        </NuxtLink>
                         <NuxtLink to="/contact"
-                                  class="bg-secondary hover:bg-primary hover:text-black text-text_secondaryt 
-                              px-4 py-2 rounded-lg flex items-center">
-                            <span class="flex items-center">
-                                <span class="mr-2">Get Started</span>
-                                <ArrowRightIcon class="h-6 w-6" />
-                            </span>
+                                  class="ml-4 border border-secondary px-6 py-3 rounded-lg text-lg font-medium text-white hover:bg-secondary hover:text-black">
+                            Book a Session
                         </NuxtLink>
                     </div>
                 </div>
@@ -39,5 +32,6 @@ import { ArrowRightIcon } from '@heroicons/vue/24/solid'
         </div>
     </section>
 </template>
+
 
 <style lang="scss" scoped></style>

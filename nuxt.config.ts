@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import { resolve } from 'path'
+import { readFileSync } from 'fs';
 
 export default defineNuxtConfig({
     schemaOrg: {
@@ -13,6 +14,9 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             siteBaseUrl: process.env.NUXT_PUBLIC_SITE_BASE_URL || '',
+            tailwindConfig: JSON.parse(
+                readFileSync(resolve('./build/tailwind-config.json'), 'utf-8')
+            ),
         },
     },
     devtools: {
@@ -76,6 +80,13 @@ export default defineNuxtConfig({
     },
     gtag: {
         id: 'GTM-56JT43X' //! TODO  - add tag when production deployed
+    },
+    vite: {
+        server: {
+            watch: {
+                ignored: ['./build/**'], // Ignore the build directory
+            },
+        },
     },
 
     compatibilityDate: '2024-08-24',

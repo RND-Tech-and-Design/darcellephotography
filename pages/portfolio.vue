@@ -1,15 +1,14 @@
 <script setup lang="ts">
 definePageMeta({
-  layout: "default",
-  title: "About",
-  navOrder: 2,
-  description: ``,
+    layout: "default",
+    title: "Portfolio",
+    navOrder: 1,
+    description: ``,
 });
 
 </script>
 
 <template>
-    <Hero headline="About" hero-image="/images/banner/about.webp" overlayClass="bg-complementary_accent" />
     <!-- <div class="flex flex-col align-center">
 
         <section :class="pageStyle.margins">

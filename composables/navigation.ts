@@ -7,6 +7,7 @@ import type { RouteRecordNormalized } from 'vue-router';
 export type NavLink = {
     name: string;
     path: string;
+    icon?: string;
     active?: boolean;
     order?: number;
     children?: NavLink[];

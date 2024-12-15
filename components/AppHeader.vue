@@ -49,23 +49,29 @@ onUnmounted(() => {
 
 <template>
     <header>
-        <nav class="navbar bg-secondary text-neutral-content lg:py-6 sm:py-0">
+        <nav class="navbar bg-base-100 text-neutral-content lg:py-6 sm:py-0">
             <div class="navbar-start ">
-                <!-- Optional: Add content here -->
+                <!-- Logo -->
+                <a href="/" class="absolute overflow-visible z-10 ">
+                    <img src="/images/logos/logo.webp" alt="Logo" height="112px" width="112px" />
+                </a>
             </div>
             <div class="navbar-center flex-col">
+            </div>
 
+            <div class="navbar-end ">
                 <!-- Menu -->
-                <ul ref="menuRef" class="menu menu-horizontal disable-active px-1 hidden -mt-10 lg:flex z-20">
+                <ul ref="menuRef" class="menu menu-horizontal disable-active px-1 hidden -mt-5 lg:flex z-20">
                     <!-- Menu Items without Children -->
                     <template v-for="link in navigationLinks" :key="link.path">
                         <li v-if="!link.children || link.children.length === 0"
-                            :class="`join-item text-text_secondary ${link.active ? 'ease-in duration-100 border-t-[3px]' : 'pt-[3px]'}`"
-                            style="color: white !important;">
+                            :class="`join-item text-text_primary ${link.active ? 'ease-in duration-100 border-t-[3px]' : 'pt-[3px]'}`">
+
                             <NuxtLink :to="link.path"
-                                      class="join-item text-text_secondary"
-                                      style="color: white !important;">
+                                      class="join-item text-text_primary">
+                                <!-- <Icon  :name="link?.icon ?? ''"></Icon> -->
                                 {{ link.name }}
+
                             </NuxtLink>
                         </li>
                     </template>
@@ -84,7 +90,7 @@ onUnmounted(() => {
                                     <template v-for="child in link.children" :key="child.path">
                                         <li>
                                             <NuxtLink :to="child.path"
-                                                      class="link whitespace-nowrap focus:text-text_secondary"
+                                                      class="link whitespace-nowrap focus:text-text_primary"
                                                       style="color: white !important;">
                                                 <Icon v-if="child.active"
                                                       name="ph:dot-outline-fill"
@@ -102,22 +108,6 @@ onUnmounted(() => {
                     </template>
                 </ul>
 
-                <!-- Logo -->
-                <a href="/" class="absolute overflow-visible -top-4 lg:top-6 z-10 ">
-                    <img src="/images/logos/icon.svg" alt="Logo" height="112px" width="112px" />
-                </a>
-            </div>
-
-            <div class="navbar-end ">
-                <!-- <NuxtLink to="https://erindtherapy.clientsecure.me/sign-in"
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          class="btn btn-primary hidden text-text_secondary lg:flex mr-2 ">
-                    <span class="flex items-center ">
-                        <span class="mr-2 text-text_secondary">Client Portal</span>
-                        <ArrowTopRightOnSquareIcon class="h-6 w-6" />
-                    </span>
-                </NuxtLink> -->
                 <slot />
             </div>
         </nav>
