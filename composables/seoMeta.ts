@@ -42,6 +42,8 @@ const metaCache: Record<string, MetaCacheValue> = {};
 const usedPaths: Set<string> = new Set();
 
 export const populateHeader = ({ meta, fullPath }: RouteLocationNormalizedLoaded) => {
+    
+    console.log("🚀 ~ populateHeader ~ lastPath:", lastPath);
     if (lastPath === fullPath) {
         // The path is the same as the last call, so return early
         return;
@@ -86,7 +88,7 @@ export const populateHeader = ({ meta, fullPath }: RouteLocationNormalizedLoaded
         author: profTitle,
         creator: 'Darcelle Photography',
         description,
-        fbAppId: '1234567890', // Replace with actual Facebook App ID if applicable
+        fbAppId: '61552613942539', // Replace with actual Facebook App ID if applicable
         generator: 'NuxtJS',
         mobileWebAppCapable: 'yes',
         msapplicationTileImage: tileLogo,

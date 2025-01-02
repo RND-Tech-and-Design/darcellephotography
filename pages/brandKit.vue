@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import IndividualImage from '~/components/Portfolio/IndividualImage.vue';
+
 definePageMeta({
     layout: "default",
     title: "Brand Kit",
@@ -35,6 +37,15 @@ const config = tailwindConfig as unknown as ITailwindConfig;
 const { fontFamily, colors, animation, keyframes } = config.theme.extend;
 const daisyThemes = config.daisyui?.themes || [];
 const themeColors = daisyThemes[0] || {};
+const gallery = {
+    name: 'Nature',
+    images: [
+        { id: 1, src: '/images/placeholder/exampleBBApoth.jpg', alt: 'Nature Image 1', fullSrc: '/images/placeholder/exampleBBApoth.jpg' },
+        { id: 1, src: '/images/placeholder/exampleBBApoth.jpg', alt: 'Nature Image 1', fullSrc: '/images/placeholder/exampleBBApoth.jpg' },
+        { id: 1, src: '/images/placeholder/exampleBBApoth.jpg', alt: 'Nature Image 1', fullSrc: '/images/placeholder/exampleBBApoth.jpg' },
+            ],
+};
+
 </script>
 
 <template>
@@ -153,19 +164,11 @@ const themeColors = daisyThemes[0] || {};
         <section class="mb-12">
             <h2 class="text-2xl font-bold mb-6">Image Placeholders WIP</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <div class="text-center">
-                    <div class="bg-gray-100 w-full aspect-square mx-auto flex items-center justify-center rounded-lg">
-                        <p class="text-gray-400">Thumbnail (800x800)</p>
-                    </div>
-                    <p class="mt-2 text-gray-600">Thumbnail</p>
-                </div>
-                <div class="text-center">
-                    <div class="bg-gray-100 w-full aspect-square mx-auto flex items-center justify-center rounded-lg">
-                        <p class="text-gray-400">Icon (128x128)</p>
-                    </div>
-                    <p class="mt-2 text-gray-600">Icon</p>
-                </div>
+                <IndividualImage
+                                 v-for="image in gallery.images"
+                                 :key="image.id"
+                                 :image="image" />
+               
             </div>
         </section>
 

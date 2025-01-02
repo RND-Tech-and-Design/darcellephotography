@@ -39,7 +39,7 @@ const observeElement = (el: HTMLElement) => {
 // Lifecycle hooks
 onMounted(() => {
     if (wrapperRef.value) {
-        observeElement(wrapperRef.value);
+        observeElement(wrapperRef.value as HTMLElement);
     }
 });
 

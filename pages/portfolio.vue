@@ -8,7 +8,12 @@ definePageMeta({
 
 </script>
 
+
+
+
 <template>
+
+    <PortfolioGalleryList></PortfolioGalleryList>
     <!-- <div class="flex flex-col align-center">
 
         <section :class="pageStyle.margins">

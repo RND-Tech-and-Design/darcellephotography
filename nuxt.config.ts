@@ -61,16 +61,24 @@ export default defineNuxtConfig({
     css: ['~/assets/css/main.scss'],
 
     modules: [
-        'nuxt-og-image',
-        'nuxt-schema-org',
-        '@nuxt/icon', // https://nuxt.com/modules/icon https://icones.js.org/
-        '@nuxtjs/sitemap', 
-        '@nuxtjs/robots',
-        'nuxt-gtag', //https://nuxt.com/modules/gtag
-        "nuxt-lodash",
-        '@nuxt/image',
-        '@nuxt/content',
+      'nuxt-og-image',
+      'nuxt-schema-org',
+      // https://nuxt.com/modules/icon https://icones.js.org/
+      '@nuxt/icon',
+      '@nuxtjs/sitemap',
+      '@nuxtjs/robots',
+      //https://nuxt.com/modules/gtag
+      'nuxt-gtag',
+      "nuxt-lodash",
+      '@nuxt/image',
+      '@nuxt/content',
+      '@nuxtjs/sanity',
     ],
+
+    sanity: {
+        projectId: "anzm8tuo",
+        dataset: "production",
+    },
 
     postcss: {
         plugins: {

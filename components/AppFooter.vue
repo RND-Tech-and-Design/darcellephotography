@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import { type NavLink } from '~/composables/navigation';
-import { EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/vue/24/solid';
+import { PhoneIcon, MapPinIcon } from '@heroicons/vue/24/solid';
 
 defineProps({
     navigationLinks: {
@@ -27,22 +27,29 @@ const currentYear = new Date().getFullYear()
                 </header>
 
                 <div>
-                    <NuxtLink href="https://www.facebook.com/darcellephotogrpahy"
+                    <NuxtLink href=" https://www.facebook.com/profile.php?id=61552613942539"
                               class="link link-hover flex items-center">
                         <span class="h-4 mr-1">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
-                                 class="fill-current">
-                                <path
-                                      d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
-                                </path>
-                            </svg>
+                            <Icon name="line-md:facebook" size="1.5em" />
                         </span>
                         @darcellephotography
                     </NuxtLink>
                 </div>
+
+                <div>
+                    <NuxtLink href="https://www.instagram.com/_darcellephotography/"
+                              class="link link-hover flex items-center">
+                        <span class="h-4 mr-1">
+                            <Icon name="line-md:instagram" size="1.5em" />
+                        </span>
+                        @_darcellephotography
+                    </NuxtLink>
+                </div>
                 <div>
                     <span class="flex items-center">
-                        <EnvelopeIcon class="h-5 w-5 mr-1" />
+                        <span class="h-4 mr-1">
+                            <Icon name="line-md:email" size="1.5em" />
+                        </span>
                         <NuxtLink class="link link-hover flex items-center"
                                   href="mailto:darcelle@darcellephotography.com">
                             darcelle@darcellephotography.com
@@ -50,11 +57,11 @@ const currentYear = new Date().getFullYear()
                     </span>
 
                 </div>
-                <!-- <div>
+                <div>
                     <span class="flex items-center">
                         <PhoneIcon class="h-5 w-5 mr-1" />
-                        <NuxtLink class="link link-hover flex items-center" href="tel:+4257280775">
-                            (425) 728-0775
+                        <NuxtLink class="link link-hover flex items-center" href="tel:+4258308496">
+                            (425) 830-8496
                         </NuxtLink>
                     </span>
 
@@ -62,10 +69,10 @@ const currentYear = new Date().getFullYear()
                 <div>
                     <span class="flex items-center">
                         <MapPinIcon class="h-5 w-5 mr-1" />
-                        P.O. Box 412 Renton, WA 98057
+                        1523 132nd ST SE, Ste. C108 Everett, WA 98208
                     </span>
 
-                </div> -->
+                </div>
             </aside>
 
             <nav>
