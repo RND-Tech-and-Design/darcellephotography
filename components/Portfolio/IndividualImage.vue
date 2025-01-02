@@ -1,9 +1,13 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
+import type { GalleryImage } from '~/types/gallery';
+import { urlFor } from '~/composables/utils';
+
+const viewportHeight = ref<number>(0);
 
 const props = defineProps({
     image: {
-        type: Object,
+        type: Object as () => GalleryImage,
         required: true,
         default: () => ({
             src: '',
@@ -23,8 +27,12 @@ const isImageLoaded = ref(false);
 const naturalWidth = ref<number>(0);
 const naturalHeight = ref<number>(0);
 
+const updateViewportHeight = () => {
+  viewportHeight.value = window.innerHeight;
+};
+
 const openLightbox = () => {
-    if (props.image.fullSrc) {
+    if (props.image?.fullSrc) {
         isLightboxOpen.value = true;
         return;
     }
@@ -43,6 +51,19 @@ const onImageLoad = (event: Event) => {
         naturalHeight.value = imgEl.naturalHeight;
     }
 };
+
+onMounted(() => {
+  // Set initial height
+  updateViewportHeight();
+
+  // Add resize event listener
+  window.addEventListener('resize', updateViewportHeight);
+});
+
+onUnmounted(() => {
+  // Clean up event listener
+  window.removeEventListener('resize', updateViewportHeight);
+});
 </script>
 
 <template>
@@ -77,31 +98,30 @@ const onImageLoad = (event: Event) => {
                 </template>
             </MLazyWrap>
         </div>
-
         <!-- Lightbox -->
-        <div
-             v-if="isLightboxOpen"
-             class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center transition-opacity"
-             @click.self="closeLightbox">
-            <!-- Close button -->
-            <button
+            <div
+                v-if="isLightboxOpen"
+                class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center transition-opacity"
+                @click.self="closeLightbox">
+                <!-- Close button -->
+                <button
                     @click="closeLightbox"
-                    class="absolute top-4 right-4 bg-white text-black p-2 pb-1 rounded-full shadow-lg">
+                    class="absolute top-4 right-4 bg-white text-black p-2 pb-1 rounded-full shadow-lg"
+            >
                 <Icon name="line-md:menu-to-close-alt-transition" class="text-secondary text-4xl" />
             </button>
 
             <!-- Image Wrapper -->
             <MLazyWrap>
-                <NuxtPicture
-                             :src="isLightboxOpen ? image.fullSrc : ''"
-                             :alt="image.alt"
-                             loading="lazy"
-                             format="webp"
-                             class="max-h-[100vh] max-w-[100vw] object-contain" />
+                <NuxtImg
+                    :src="isLightboxOpen ? urlFor(image?.photoObject)?.height(viewportHeight)?.url() : ''"
+                    :alt="image.alt"
+                    :height="viewportHeight"
+                    class="w-full h-full max-w-screen object-contain"
+                    :style="{ height: viewportHeight + 'px', maxWidth: '100%' }"
+                />
             </MLazyWrap>
-        </div>
-
-
+        </div> <!-- End Lightbox -->
     </div>
 </template>
 

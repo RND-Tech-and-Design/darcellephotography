@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import IndividualImage from './IndividualImage.vue';
 import { defineProps, defineEmits } from 'vue';
-
+import type { Gallery } from '~/types/gallery';
 
 // Accept the gallery prop
 const props = defineProps<{

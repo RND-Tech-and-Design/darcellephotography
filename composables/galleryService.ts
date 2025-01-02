@@ -1,10 +1,9 @@
 
 
-import { BehaviorSubject, Subject } from 'rxjs';
-import type { Gallery } from '~/types/gallery';
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { BehaviorSubject } from 'rxjs';
+import type { Gallery, GalleryImage } from '~/types/gallery';
 import { isEmpty } from 'lodash-es';
-import imageUrlBuilder from "@sanity/image-url";
+import { urlFor } from './utils';
 
 const GALLERY_QUERY = groq`
         *[_type=="gallery"]{
@@ -20,10 +19,11 @@ export class GalleryService {
     private galleries$: BehaviorSubject<Gallery[]> = new BehaviorSubject(this.galleryCache);
 
     constructor() {
-        console.log("🚀 ~ GalleryService ~ constructor ~ retrieveGalleries:");
         this.retrieveGalleries();
     }
+
     get portfolioGalleries() {
+        this.retrieveGalleries();
         return this.galleries$.asObservable();
     }
     private retrieveGalleries = async () => {
@@ -34,26 +34,15 @@ export class GalleryService {
 
         await this.queryForGalleries()
             .then(galleries => {
-                 console.log("🚀 ~ GalleryService ~ retrieveGalleries= ~ galleries:", galleries);
                 this.galleryCache = galleries;
                 this.galleries$.next(galleries)
             })
            
     }
 
-    private urlFor = (source: SanityImageSource) => {
-        const { projectId, dataset } = useSanity().client.config();
-        return projectId && dataset
-            ? imageUrlBuilder({ projectId, dataset }).image(source)
-            : null;
-    }
-
-
     private queryForGalleries = async (): Promise<Gallery[]> => {
         const { data: preSanityGalleries } = await useSanityQuery<any[]>(GALLERY_QUERY);
         const sanityGalleries = toRaw(preSanityGalleries.value);
-        console.log("🚀 ~ GalleryService ~ queryForGalleries= ~ preSanityGalleries:", preSanityGalleries);
-        console.log("🚀 ~ GalleryService ~ queryForGalleries= ~ sanityGalleries:", sanityGalleries);
 
         // If we got nothing back, return an empty array.
         if (!Array.isArray(sanityGalleries) || !sanityGalleries.length) {
@@ -62,26 +51,28 @@ export class GalleryService {
 
         return sanityGalleries.map((sg) => {
             // Build the images array from photos
-            const images = (sg.photos ?? []).map((photo: any) => {
-                const imgSrc = this.urlFor(photo?.asset)?.url() ?? '';
+            const images: GalleryImage[] = (sg.photos ?? []).map((photo: any) => {
+
+                const imgSrc = urlFor(photo?.asset)?.url() ?? '';
+
+                
                 return {
                     id: photo._key,
                     src: imgSrc,
                     alt: photo.alt,
-                    fullSrc: imgSrc
+                    fullSrc: imgSrc,
+                    photoObject: photo
                 };
             });
 
             // Return the Gallery object
             return {
-                id: sg.id, // or sg._id if your doc uses _id
+                id: sg._id,
                 name: sg.title,
                 description: sg.description,
-                thumbnail: this.urlFor(sg.gallery_thumbnail?.asset?._ref)?.url() ?? '',
+                thumbnail: urlFor(sg.gallery_thumbnail?.asset?._ref)?.url() ?? '',
                 images
             } as Gallery;
         });
     };
-
-
 }

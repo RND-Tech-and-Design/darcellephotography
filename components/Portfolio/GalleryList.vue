@@ -7,8 +7,8 @@ import { Subject, takeUntil } from 'rxjs';
 
 const galleries = ref<Gallery[]>([]);
 
-const selectedGallery = ref<Gallery | null>(null);
 const route = useRoute();
+const selectedGallery = ref<Gallery | null>(null);
 const router = useRouter();
 
 const destroy$ = new Subject<boolean>();
@@ -30,16 +30,18 @@ const clearSelection = () => {
 };
 
 onMounted(() => {
+    const galleryId = route.params.galleryId as string | null;
     const galleryService = getCreateGalleryService();
-    console.log("🚀 ~ onMounted ~ galleryList:");
-    
     galleryService.portfolioGalleries
         .pipe(
             takeUntil(destroy$)
         )
         .subscribe((gall2) => {
-            console.log("🚀 ~ .subscribe ~ gall2:", gall2);
             galleries.value = gall2;
+            if (galleryId) {
+                const gallery = galleries.value.find((g) => g.id === Number(galleryId));
+                selectedGallery.value = gallery || null;
+            }
         });
 
 });
@@ -49,21 +51,7 @@ onUnmounted(() => {
     destroy$.complete();
 });
 
-/**
- * Watch the route for changes to the `gallery` query parameter.
- */
-watch(
-    () => route.query.gallery,
-    (galleryId) => {
-        if (galleryId) {
-            const gallery = galleries.value.find((g) => g.id === Number(galleryId));
-            selectedGallery.value = gallery || null;
-        } else {
-            selectedGallery.value = null;
-        }
-    },
-    { immediate: true } // Run the watcher immediately to handle initial URL state
-);
+
 </script>
 
 <template>

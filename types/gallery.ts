@@ -3,6 +3,15 @@ export interface GalleryImage {
     src: string;
     alt: string;
     fullSrc: string;
+    photoObject: GalleryImageObject;
+}
+export interface GalleryImageObject {
+    _type: string;
+    _key: string;
+    asset: {
+        _type: string;
+        _ref: string;
+    };
 }
 
 export interface Gallery {
