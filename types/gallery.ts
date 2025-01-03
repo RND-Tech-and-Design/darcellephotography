@@ -3,9 +3,9 @@ export interface GalleryImage {
     src: string;
     alt: string;
     fullSrc: string;
-    photoObject: GalleryImageObject;
+    photoObject: SanityImageObject;
 }
-export interface GalleryImageObject {
+export interface SanityImageObject {
     _type: string;
     _key: string;
     asset: {
@@ -15,7 +15,7 @@ export interface GalleryImageObject {
 }
 
 export interface Gallery {
-    id: number;
+    id: string;
     name: string;
     thumbnail: string;
     description: string;

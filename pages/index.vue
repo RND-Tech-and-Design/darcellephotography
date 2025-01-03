@@ -10,29 +10,6 @@ definePageMeta({
     icon: 'line-md:home-simple'
 })
 
-const carouselItems: CarouselItem[] = [
-    {
-        image: "/images/content/helping_hand.webp",
-        altText: "helping hand",
-        title: "Individual Therapy",
-        description: "Using a strengths-based methodology, I offer weekly 50-minute sessions designed to establish a robust support system tailored specifically for your needs.",
-        link: "/services/individualTherapy"
-    },
-    {
-        image: "/images/content/couple.webp",
-        altText: "couple",
-        title: "Couples Therapy",
-        description: "I provide weekly sessions, available in 50 or 90-minute durations, aimed at assisting you and your partner in overcoming relationship challenges. By employing the Gottman Method, I focus on fostering a stronger bond and deeper connection between you both, using a scientifically grounded approach.",
-        link: "/services/couplesTherapy"
-    },
-    {
-        image: "/images/content/marathon.webp",
-        altText: "heart",
-        title: "Marathon Therapy",
-        description: "I offer flexible, intensive marathon therapy sessions designed to quickly deepen your understanding of relationship dynamics and strengthen your connection with your partner, ideal for couples seeking rapid progress.",
-        link: "/services/marathonCouplesTherapy"
-    }
-]
 
 const individualSectionCardContent: SectionContent = {
     title: 'Does this sound like you?',

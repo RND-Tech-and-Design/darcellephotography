@@ -28,7 +28,7 @@ const naturalWidth = ref<number>(0);
 const naturalHeight = ref<number>(0);
 
 const updateViewportHeight = () => {
-  viewportHeight.value = window.innerHeight;
+    viewportHeight.value = window.innerHeight;
 };
 
 const openLightbox = () => {
@@ -53,16 +53,16 @@ const onImageLoad = (event: Event) => {
 };
 
 onMounted(() => {
-  // Set initial height
-  updateViewportHeight();
+    // Set initial height
+    updateViewportHeight();
 
-  // Add resize event listener
-  window.addEventListener('resize', updateViewportHeight);
+    // Add resize event listener
+    window.addEventListener('resize', updateViewportHeight);
 });
 
 onUnmounted(() => {
-  // Clean up event listener
-  window.removeEventListener('resize', updateViewportHeight);
+    // Clean up event listener
+    window.removeEventListener('resize', updateViewportHeight);
 });
 </script>
 
@@ -99,27 +99,20 @@ onUnmounted(() => {
             </MLazyWrap>
         </div>
         <!-- Lightbox -->
-            <div
-                v-if="isLightboxOpen"
-                class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center transition-opacity"
-                @click.self="closeLightbox">
-                <!-- Close button -->
-                <button
-                    @click="closeLightbox"
-                    class="absolute top-4 right-4 bg-white text-black p-2 pb-1 rounded-full shadow-lg"
-            >
+        <div v-if="isLightboxOpen"
+             class="fixed inset-0 bg-black bg-opacity-75 z-50 flex items-center justify-center transition-opacity"
+             @click.self="closeLightbox">
+            <!-- Close button -->
+            <button @click="closeLightbox"
+                    class="absolute top-4 right-4 bg-white text-black p-2 pb-1 rounded-full shadow-lg">
                 <Icon name="line-md:menu-to-close-alt-transition" class="text-secondary text-4xl" />
             </button>
 
             <!-- Image Wrapper -->
             <MLazyWrap>
-                <NuxtImg
-                    :src="isLightboxOpen ? urlFor(image?.photoObject)?.height(viewportHeight)?.url() : ''"
-                    :alt="image.alt"
-                    :height="viewportHeight"
-                    class="w-full h-full max-w-screen object-contain"
-                    :style="{ height: viewportHeight + 'px', maxWidth: '100%' }"
-                />
+                <NuxtImg :src="isLightboxOpen ? (urlFor(image?.photoObject)?.format('webp')?.height(viewportHeight*2)?.url()) : ''"
+                         :alt="image.alt" class="w-full h-full max-w-screen object-contain"
+                         :style="{ height: viewportHeight + 'px' }" />
             </MLazyWrap>
         </div> <!-- End Lightbox -->
     </div>

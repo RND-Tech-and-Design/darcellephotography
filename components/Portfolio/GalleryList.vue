@@ -1,14 +1,14 @@
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import GalleryView from './GalleryView.vue';
 import type { Gallery } from '~/types/gallery';
 import { Subject, takeUntil } from 'rxjs';
 
 const galleries = ref<Gallery[]>([]);
+const selectedGallery = ref<Gallery | null>(null);
 
 const route = useRoute();
-const selectedGallery = ref<Gallery | null>(null);
 const router = useRouter();
 
 const destroy$ = new Subject<boolean>();
@@ -29,21 +29,35 @@ const clearSelection = () => {
     router.push({ query: {} }); // Clear the query parameter
 };
 
+/**
+ * Update the selected gallery based on route params.
+ */
+const updateSelectedGallery = (forceGalleryid?: string) => {
+    const galleryId = forceGalleryid || route.query.gallery as string | null;
+    console.log('Gallery ID:', galleryId);
+    if (galleries.value.length === 0) {
+        return;
+    }
+    if (galleryId) {
+        const gallery = galleries.value.find((g) => g.id === galleryId);
+        selectedGallery.value = gallery || null;
+    } else {
+        selectedGallery.value = null;
+        router.push('/portfolio');
+    }
+};
+
+// Watch for route changes and update the gallery
+watchEffect(() => updateSelectedGallery());
+
 onMounted(() => {
-    const galleryId = route.params.galleryId as string | null;
     const galleryService = getCreateGalleryService();
     galleryService.portfolioGalleries
-        .pipe(
-            takeUntil(destroy$)
-        )
-        .subscribe((gall2) => {
-            galleries.value = gall2;
-            if (galleryId) {
-                const gallery = galleries.value.find((g) => g.id === Number(galleryId));
-                selectedGallery.value = gallery || null;
-            }
+        .pipe(takeUntil(destroy$))
+        .subscribe((fetchedGalleries) => {
+            galleries.value = fetchedGalleries;
+            updateSelectedGallery(); // Update selection when galleries are fetched
         });
-
 });
 
 onUnmounted(() => {
@@ -51,14 +65,12 @@ onUnmounted(() => {
     destroy$.complete();
 });
 
-
 </script>
 
 <template>
     <div>
         <!-- Show Gallery List if no gallery is selected -->
         <div v-if="!selectedGallery" class="p-4 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-
             <CardOverlay
                          v-for="gallery in galleries"
                          :key="gallery.id"
@@ -69,9 +81,7 @@ onUnmounted(() => {
                         }"
                          :title="gallery.name"
                          :description="gallery.description"
-                         :action="() => selectGallery(gallery)">
-
-            </CardOverlay>
+                         :action="() => selectGallery(gallery)" />
         </div>
 
         <!-- Show GalleryView if a gallery is selected -->

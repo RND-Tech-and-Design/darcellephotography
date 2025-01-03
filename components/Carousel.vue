@@ -57,7 +57,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <section class="py-10 px-2"> <!-- Changed mx-2 to px-2 -->
+    <section class="py-10 px-2"> 
         <div class="flex justify-center items-center py-8">
             <transition name="fade">
                 <button :style="{ visibility: showLeftButton ? 'visible' : 'hidden' }"
@@ -75,6 +75,7 @@ onUnmounted(() => {
                 <CarouselCard v-for="(item, index) in carouselItems" :key="index"
                               :carouselItem="item"
                               :itemIndex="index"
+                              :quoteMode="item.isQuote"
                               @load="updateButtonVisibility" />
             </div>
             <transition name="fade">

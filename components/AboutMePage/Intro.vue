@@ -2,36 +2,49 @@
 import { defineProps } from "vue";
 
 const props = defineProps({
-  title1: { type: String, default: "" },
-  title2: { type: String, default: "" },
-  paragraphs: { type: Array<{ text: String; styleType: String }>, default: [{ text: "", styleType: "" }] }
+    title1: { type: String, default: "" },
+    title2: { type: String, default: "" },
+    paragraphs: {
+        type: Array as () => Array<{ text: string; styleType: string }>,
+        default: () => []
+    }
 });
-
 </script>
+
 <template>
-  <section class="flex flex-col sm:flex-row mt-20 mb-20 ">
-    <div class="flex flex-1 flex-col mr-0 sm:mr-20 lg:mr-40">
-      <div class="uppercase tracking-tight font-bold text-secondary mt-10">
-        <h3>{{ props.title1 }}</h3>
-      </div>
-      <div class="mt-5 mb-5 font-bold text-4xl md:text-5xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
-        <h3>{{ props.title2 }}</h3>
-      </div>
-      <div class="mt-7 text-base">
-        <p v-for="(paragraph, index) in props.paragraphs" :key="index"
-          class="block mb-7 text-text_primary bg-clip-text font-sans text-base leading-relaxed antialiased">
-          {{ paragraph.text }}
-        </p>
-        <NuxtLink to="/contact" class="mt-10 btn btn-secondary text-white mt-8">
-          Let's Connect!
-        </NuxtLink>
-      </div>
-    </div>
+    <section
+             class="container mx-auto px-6 sm:px-8 py-12 sm:py-16 flex flex-col-reverse md:flex-row md:items-center md:justify-between gap-10 md:gap-16">
+        <!-- Text Column -->
+        <div class="md:w-1/2 space-y-6 text-gray-800">
+            <!-- Small Subheading -->
+            <h3 class="text-sm uppercase tracking-widest font-semibold text-gray-500">
+                {{ title1 }}
+            </h3>
 
+            <!-- Main Heading -->
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight">
+                {{ title2 }}
+            </h2>
 
-    <div class="flex-1 max-w-72 xl:max-w-96 mx-auto mt-10 rounded-xl bg-clip-border text-gray-700 shadow-lg ">
-      <img class="object-cover object-center w-full h-full rounded-xl text-gray-700 shadow-lg "
-        src="/images/content/aboutme.webp" alt="profile-picture" />
-    </div>
-  </section>
+            <!-- Paragraphs -->
+            <div class="space-y-4">
+                <p
+                   v-for="(para, index) in paragraphs"
+                   :key="index"
+                   :class="[para.styleType || 'text-base md:text-lg leading-relaxed']">
+                    {{ para.text }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Image Column -->
+        <div class="md:w-1/2 flex justify-center">
+            <NuxtImg
+                     src="/images/content/profile-darcelle.webp"
+                     alt="Darcelle's Portrait"
+                     layout="responsive"
+                     class="w-full max-w-sm rounded-lg shadow-md object-cover" />
+        </div>
+
+    </section>
 </template>

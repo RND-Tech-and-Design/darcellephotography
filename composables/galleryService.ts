@@ -53,9 +53,8 @@ export class GalleryService {
             // Build the images array from photos
             const images: GalleryImage[] = (sg.photos ?? []).map((photo: any) => {
 
-                const imgSrc = urlFor(photo?.asset)?.url() ?? '';
+                const imgSrc = urlFor(photo?.asset)?.format('webp')?.url() ?? '';
 
-                
                 return {
                     id: photo._key,
                     src: imgSrc,
