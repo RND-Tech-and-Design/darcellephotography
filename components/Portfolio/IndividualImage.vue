@@ -77,6 +77,7 @@ onUnmounted(() => {
                              :src="image.src"
                              :alt="isImageLoaded ? image.alt : ''"
                              @load="onImageLoad"
+                             provider="sanity"
                              loading="lazy"
                              placeholder
                              format="webp"
