@@ -3,7 +3,6 @@
 import { BehaviorSubject } from 'rxjs';
 import type { Gallery, GalleryImage } from '~/types/gallery';
 import { isEmpty } from 'lodash-es';
-import { urlFor } from './utils';
 
 const GALLERY_QUERY = groq`
         *[_type=="gallery"]{
@@ -53,7 +52,7 @@ export class GalleryService {
             // Build the images array from photos
             const images: GalleryImage[] = (sg.photos ?? []).map((photo: any) => {
 
-                const imgSrc = urlFor(photo?.asset)?.format('webp')?.url() ?? '';
+                const imgSrc = photo?.asset?._ref ?? '';
 
                 return {
                     id: photo._key,
@@ -69,7 +68,7 @@ export class GalleryService {
                 id: sg._id,
                 name: sg.title,
                 description: sg.description,
-                thumbnail: urlFor(sg.gallery_thumbnail?.asset?._ref)?.url() ?? '',
+                thumbnail: sg.gallery_thumbnail?.asset?._ref ?? '',
                 images
             } as Gallery;
         });

@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import type { GalleryImage } from '~/types/gallery';
-import { urlFor } from '~/composables/utils';
 
 const viewportHeight = ref<number>(0);
 
@@ -111,7 +110,7 @@ onUnmounted(() => {
 
             <!-- Image Wrapper -->
             <MLazyWrap>
-                <NuxtImg :src="isLightboxOpen ? (urlFor(image?.photoObject)?.format('webp')?.height(viewportHeight*2)?.url()) : ''"
+                <NuxtImg :src="isLightboxOpen ? image?.photoObject?.asset?._ref : ''"
                          :alt="image.alt" class="w-full h-full max-w-screen object-contain"
                          :style="{ height: viewportHeight + 'px' }" />
             </MLazyWrap>
