@@ -40,7 +40,7 @@ const props = defineProps({
         <!-- Image Column -->
         <div class="md:w-1/2 flex justify-center">
             <NuxtImg
-                     src="/images/content/profile-darcelle.webp"
+                     src="/images/content/aboutPhoto.webp"
                      alt="Darcelle's Portrait"
                      layout="responsive"
                      class="w-full max-w-sm rounded-lg shadow-md object-cover" />
