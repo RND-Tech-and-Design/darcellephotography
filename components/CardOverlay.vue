@@ -8,6 +8,7 @@ defineProps({
             src: '',
             alt: '',
             id: '',
+            provider: '',
         }),
     },
     title: {
@@ -32,8 +33,12 @@ defineProps({
 
     <div class="card lg:card-side bg-base-100 shadow-xl cursor-pointer" @click="action()">
         <figure>
-           <MLazyWrap>
-                <NuxtPicture :src="image.src" :alt="image.alt" prerender format="webp"
+            <MLazyWrap>
+                <NuxtPicture :src="image.src"
+                             :alt="image.alt" 
+                             :provider="image.provider"
+                             prerender 
+                             format="webp"
                              class="max-w-full max-h-full object-contain" />
             </MLazyWrap>
         </figure>
@@ -42,5 +47,5 @@ defineProps({
             <p>{{ description }}</p>
         </div>
     </div>
-   
+
 </template>

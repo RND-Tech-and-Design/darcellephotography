@@ -77,7 +77,8 @@ onUnmounted(() => {
                          :image="{
                             src: gallery.thumbnail,
                             id: gallery.id,
-                            alt: gallery.name
+                            alt: gallery.name,
+                            provider: 'sanity',
                         }"
                          :title="gallery.name"
                          :description="gallery.description"

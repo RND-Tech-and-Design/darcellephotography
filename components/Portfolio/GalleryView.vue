@@ -33,10 +33,7 @@ console.log(props.gallery.images.length)
 
         <!-- Masonry-like layout using columns -->
         <div class="columns-2 md:columns-3 lg:columns-4 gap-4">
-            <!-- 
-        NOTE: Each child is wrapped in a block-level container (e.g., a <div>)
-        with "break-inside-avoid" to prevent images from being split awkwardly.
-      -->
+
             <div
                  v-for="image in gallery.images"
                  :key="image.id"

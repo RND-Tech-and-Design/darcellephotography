@@ -111,6 +111,7 @@ onUnmounted(() => {
             <!-- Image Wrapper -->
             <MLazyWrap>
                 <NuxtImg :src="isLightboxOpen ? image?.photoObject?.asset?._ref : ''"
+                         provider="sanity"
                          :alt="image.alt" class="w-full h-full max-w-screen object-contain"
                          :style="{ height: viewportHeight + 'px' }" />
             </MLazyWrap>
