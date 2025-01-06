@@ -17,11 +17,12 @@ onMounted(() => {
             testimonialCarouselList.value = shuffleArray(
                 fetchedTestimonials.map((testimonial) => {
                     return {
-                        image: urlFor(testimonial?.testimonial_image?.asset)?.format('webp')?.url() ?? '',
+                        image: testimonial?.testimonial_image?.asset?._ref ?? '',
                         altText: testimonial.name,
                         title: `${testimonial.name} - ${testimonial.service}`,
                         description: testimonial.quote,
                         link: '',
+                        imageProvider: testimonial.imageProvider,
                         isQuote: true,
                     };
                 })

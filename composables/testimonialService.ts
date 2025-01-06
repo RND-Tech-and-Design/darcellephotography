@@ -57,6 +57,7 @@ export class TestimonialService {
                 quote: st.quote,
                 name: st.name,
                 service: st.service,
+                imageProvider: 'sanity',
                 testimonial_image: {
                     _type: testimonialImage._type,
                     _key: testimonialImage._key,

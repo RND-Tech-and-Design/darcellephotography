@@ -19,7 +19,7 @@ const carouselItemId = getCarouselItemId(props.itemIndex);
             <figure class="overflow-hidden relative">
                 <NuxtImg
                          layout="responsive"
-                         provider="sanity"
+                         :provider="carouselItem?.imageProvider"
                          loading="lazy"
                          placeholder
                          :src="carouselItem?.image"

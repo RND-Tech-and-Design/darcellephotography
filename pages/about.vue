@@ -32,14 +32,9 @@ const pageData = {
 
 <template>
     <Hero headline="About" hero-image="/images/banner/about.webp" overlayClass="bg-complementary_accent" />
-
-    <template>
-
-        <section class="mx-10 md:mx-auto md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg ">
-            <AboutMePageIntro v-bind="pageData.aboutMe" />
-        </section>
-
-    </template>
+    <section class="mx-10 md:mx-auto md:max-w-screen-sm lg:max-w-screen-md xl:max-w-screen-lg ">
+        <AboutMePageIntro v-bind="pageData.aboutMe" />
+    </section>
 
     <Testimonials />
     <Cta></Cta>

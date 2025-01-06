@@ -6,4 +6,5 @@ export interface Testimonial {
     name: string;
     service: string;
     testimonial_image: SanityImageObject;
+    imageProvider: string;
 }

@@ -5,4 +5,5 @@ export interface CarouselItem {
     description: string,
     link: string
     isQuote: boolean
+    imageProvider: string
 }
