@@ -35,9 +35,9 @@
                 and attract the clients you deserve.
             </p>
             <NuxtLink
-                      to="/contact"
+                      to="/about"
                       class="inline-block bg-accent text-white px-6 py-3 rounded-lg shadow-md hover:bg-accent-dark transition-all">
-                Book Your Session
+                About Darcelle
             </NuxtLink>
         </div>
     </section>
