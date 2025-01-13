@@ -1,7 +1,7 @@
 <script setup lang="ts">
 definePageMeta({
     layout: "default",
-    title: "Personal Branding Photography | Seattle Photographer",
+    title: "Personal Branding",
     description: "Showcase your story with stunning personal branding photography by Darcelle. Serving Seattle and surrounding areas with 8+ years of expertise.",
     navOrder: 2,
 });
@@ -35,7 +35,8 @@ const pageData = {
 <template>
     <div>
         <!-- Hero Section -->
-        <Hero headline="Personal Branding" hero-image="/images/banner/about.webp" overlayClass="bg-complementary_accent" />
+        <Hero headline="Personal Branding" hero-image="/images/banner/personalBranding.webp"
+              overlayClass="bg-complementary_accent" />
 
         <!-- About the Service -->
         <section class="mx-auto max-w-screen-lg py-12 px-6 md:px-8">
@@ -56,17 +57,56 @@ const pageData = {
             </ul>
         </section>
 
-        <!-- Process Section -->
         <section class="bg-gray-50 py-12">
             <div class="mx-auto max-w-screen-lg px-6 md:px-8">
-                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">How It Works</h2>
-                <div class="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <div
-                         v-for="(step, index) in pageData.process.steps"
-                         :key="index"
-                         class="bg-white shadow rounded-lg p-6">
-                        <h3 class="text-xl font-semibold text-primary">{{ step.title }}</h3>
-                        <p class="mt-2 text-gray-600">{{ step.description }}</p>
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 text-center">How It Works</h2>
+                <div class="mt-8 flex w-full flex-col lg:flex-row items-center">
+                    <!-- Step 1 -->
+                    <div class="card bg-base-200 rounded-box flex-grow flex flex-col items-center p-4">
+                        <nuxt-img
+                                  src="/images/process/consultation.webp"
+                                  alt="Consultation"
+                                  class="w-20 h-20 rounded-full mb-4 object-cover"
+                                  width="80"
+                                  height="80"
+                                  format="webp"
+                                  lazy />
+                        <h3 class="text-lg font-semibold text-primary">1. Consultation</h3>
+                        <p class="mt-2 text-gray-600 text-sm text-center">
+                            We'll discuss your goals and vision to create a tailored session.
+                        </p>
+                    </div>
+                    <div class="divider lg:divider-horizontal">→</div>
+                    <!-- Step 2 -->
+                    <div class="card bg-base-200 rounded-box flex-grow flex flex-col items-center p-4">
+                        <nuxt-img
+                                  src="/images/process/photoshoot.webp"
+                                  alt="Photoshoot"
+                                  class="w-20 h-20 rounded-full mb-4 object-cover"
+                                  width="80"
+                                  height="80"
+                                  format="webp"
+                                  lazy />
+                        <h3 class="text-lg font-semibold text-primary">2. Photoshoot</h3>
+                        <p class="mt-2 text-gray-600 text-sm text-center">
+                            Enjoy a relaxed and stress-free photoshoot experience.
+                        </p>
+                    </div>
+                    <div class="divider lg:divider-horizontal">→</div>
+                    <!-- Step 3 -->
+                    <div class="card bg-base-200 rounded-box flex-grow flex flex-col items-center p-4">
+                        <nuxt-img
+                                  src="/images/process/delivery.webp"
+                                  alt="Delivery"
+                                  class="w-20 h-20 rounded-full mb-4 object-cover"
+                                  width="80"
+                                  height="80"
+                                  format="webp"
+                                  lazy />
+                        <h3 class="text-lg font-semibold text-primary">3. Delivery</h3>
+                        <p class="mt-2 text-gray-600 text-sm text-center">
+                            Receive beautifully edited images ready to use for your brand.
+                        </p>
                     </div>
                 </div>
             </div>
