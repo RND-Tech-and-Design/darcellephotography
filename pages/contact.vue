@@ -26,7 +26,7 @@ validateForm()
 definePageMeta({
     layout: 'default',
     title: 'Contact',
-    navOrder: 3,
+    navOrder: 10,
 })
 </script>
 

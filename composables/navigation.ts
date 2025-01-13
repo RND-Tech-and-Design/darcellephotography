@@ -33,8 +33,19 @@ const getNavLink = (route: RouteRecordNormalized, currentPath: string): NavLink 
 };
 
 const sortNavLinks = (a: NavLink, b: NavLink): number => {
-    const aIndex = a.order ?? Infinity;
-    const bIndex = b.order ?? Infinity;
+    const getHighestOrder = (navLink: NavLink): number => {
+        if (navLink.order !== undefined) {
+            return navLink.order;
+        }
+        if (navLink.children && navLink.children.length > 0) {
+            return Math.max(...navLink.children.map(child => getHighestOrder(child)));
+        }
+        return Infinity;
+    };
+
+    const aIndex = getHighestOrder(a);
+    const bIndex = getHighestOrder(b);
+
     return aIndex - bIndex || a.name.localeCompare(b.name);
 };
 

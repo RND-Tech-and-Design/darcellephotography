@@ -59,9 +59,9 @@ onUnmounted(() => {
             <div class="navbar-center flex-col">
             </div>
 
-            <div class="navbar-end ">
+            <div class="navbar-end">
                 <!-- Menu -->
-                <ul ref="menuRef" class="menu menu-horizontal disable-active px-1 hidden -mt-5 lg:flex z-20">
+                <ul ref="menuRef" class="menu menu-horizontal disable-active px-1 hidden -mt-5 lg:flex z-20 mr-4">
                     <!-- Menu Items without Children -->
                     <template v-for="link in navigationLinks" :key="link.path">
                         <li v-if="!link.children || link.children.length === 0"
@@ -74,19 +74,14 @@ onUnmounted(() => {
 
                             </NuxtLink>
                         </li>
-                    </template>
-
-                    <!-- Menu Items with Children -->
-                    <template v-for="link in navigationLinks" :key="link.path">
                         <li v-if="link.children && link.children.length > 0"
-                            :class="`${link.active ? 'ease-in duration-100 border-t-[3px]' : 'pt-[3px]'}`"
-                            style="color: white !important;">
+                            :class="`${link.active ? 'ease-in duration-100 border-t-[3px]' : 'pt-[3px]'} text-text_primary `">
 
                             <details>
                                 <summary class="cursor-pointer select-none">
                                     {{ link.name }}
                                 </summary>
-                                <ul class="p-2 bg-secondary rounded-t-none">
+                                <ul class="p-2 bg-secondary rounded-t-none shadow-lg mr-10">
                                     <template v-for="child in link.children" :key="child.path">
                                         <li>
                                             <NuxtLink :to="child.path"

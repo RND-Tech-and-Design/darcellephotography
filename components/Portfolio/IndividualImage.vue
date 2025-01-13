@@ -104,18 +104,17 @@ onUnmounted(() => {
              @click.self="closeLightbox">
             <!-- Close button -->
             <button @click="closeLightbox"
-                    class="absolute top-4 right-4 bg-white text-black p-2 pb-1 rounded-full shadow-lg">
+                    class="absolute top-4 right-4 bg-white text-black p-4 rounded-full shadow-lg">
                 <Icon name="line-md:menu-to-close-alt-transition" class="text-secondary text-4xl" />
             </button>
 
             <!-- Image Wrapper -->
             <MLazyWrap>
-                <NuxtImg :src="isLightboxOpen ? image?.photoObject?.asset?._ref : ''"
-                         provider="sanity"
-                         :alt="image.alt" class="w-full h-full max-w-screen object-contain"
-                         :style="{ height: viewportHeight + 'px' }" />
+                <NuxtImg :src="isLightboxOpen ? image?.photoObject?.asset?._ref : ''" provider="sanity" :alt="image.alt"
+                         class="w-full h-full max-w-screen object-contain" :style="{ height: viewportHeight + 'px' }" />
             </MLazyWrap>
-        </div> <!-- End Lightbox -->
+        </div>
+        <!-- End Lightbox -->
     </div>
 </template>
 
